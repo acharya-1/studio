@@ -215,13 +215,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-
-            </p>
-            <Button asChild size="lg" className="transition-transform duration-300 hover:scale-105">
-                <Link href="/quote">Request Staff</Link>
-            </Button>
-        </div>
-      </div>
-    </div>
-  );
-}

@@ -1,4 +1,4 @@
-import { HardHat, Wrench, Package, Shovel, Utensils, GlassWater, Shirt } from 'lucide-react';
+import { HardHat, Wrench, Package, Shovel, Utensils, GlassWater, Shirt, Award } from 'lucide-react';
 import type { Service, Testimonial } from './definitions';
 
 export const services: Service[] = [
@@ -13,6 +13,12 @@ export const services: Service[] = [
     title: 'Licensed Electricians',
     description: 'Qualified electricians for installations, repairs, and maintenance in residential and commercial properties.',
     icon: Wrench,
+    category: 'Skilled Labor',
+  },
+  {
+    title: 'Skilled Tradespeople',
+    description: 'Plumbers, welders, and other certified tradespeople for specialized industrial and commercial jobs.',
+    icon: Award,
     category: 'Skilled Labor',
   },
   // General Labor

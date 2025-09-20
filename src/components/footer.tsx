@@ -99,10 +99,3 @@ export function Footer() {
     </footer>
   );
 }
-
-            </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
