@@ -2,50 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   :root {
-    --background: 240 5% 96%;
+    --background: 0 0% 100%;
     --foreground: 240 6% 10%;
-    --card: 240 4.8% 95.9%;
+    --card: 0 0% 100%;
     --card-foreground: 240 5.9% 10%;
-    --popover: 240 4.8% 95.9%;
+    --popover: 0 0% 100%;
     --popover-foreground: 240 5.9% 10%;
-    --primary: 262.1 83.3% 57.8%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 240 3.7% 90.9%;
+    --secondary: 210 40% 98%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 3.7% 90.9%;
+    --muted: 210 40% 98%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
+    --accent: 210 40% 98%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 85.9%;
-    --input: 240 3.7% 85.9%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   }
 
   .dark {
-    --background: 240 6% 10%;
+    --background: 222.2 84% 4.9%;
     --foreground: 210 20% 98%;
-    --card: 240 5.9% 10%;
+    --card: 222.2 84% 4.9%;
     --card-foreground: 210 20% 98%;
-    --popover: 240 5.9% 10%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
+    --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 240 3.7% 15.9%;
+    --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 240 3.7% 15.9%;
+    --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 263.4 70% 50.4%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -55,5 +61,75 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl;
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+  
+  .fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .stagger-animation {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+  100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
