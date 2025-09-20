@@ -8,6 +8,7 @@ import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -39,7 +40,8 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild className="hidden sm:inline-flex transition-transform duration-300 hover:scale-105">
             <Link href="/quote">Request Staff</Link>
           </Button>
