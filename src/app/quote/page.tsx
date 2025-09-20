@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFormState } from 'react-dom';
 import { useEffect } from 'react';
-import { quoteSchema, submitQuoteRequest } from '@/app/actions';
+import { submitQuoteRequest } from '@/app/actions';
+import { quoteSchema } from '@/lib/definitions';
 import type { z } from 'zod';
 import { services } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -31,7 +32,6 @@ export default function QuotePage() {
       services: [],
       details: '',
     },
-    context: state,
   });
 
   useEffect(() => {
