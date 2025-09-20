@@ -14,7 +14,7 @@ export function Footer() {
           </div>
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Protective Facilities. All Rights Reserved.
+              &copy; {new Date().getFullYear()} StaffHub. All Rights Reserved.
             </p>
             <div className="flex justify-center md:justify-end gap-4 mt-4">
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">

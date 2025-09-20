@@ -4,7 +4,7 @@ export type Service = {
   title: string;
   description: string;
   icon: LucideIcon;
-  category: 'Security' | 'Housekeeping';
+  category: 'Skilled Labor' | 'General Labor' | 'Event Services';
 };
 
 export type Testimonial = {

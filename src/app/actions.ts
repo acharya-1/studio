@@ -1,13 +1,6 @@
 'use server';
 
 import { z } from 'zod';
-import { recommendTailoredServices } from '@/ai/flows/recommend-tailored-services';
-import type { RecommendTailoredServicesOutput } from '@/ai/flows/recommend-tailored-services';
-
-export const recommendationSchema = z.object({
-  propertySize: z.string().min(1, 'Please select a property size.'),
-  securityConcerns: z.string().min(10, 'Please describe your security concerns (min. 10 characters).'),
-});
 
 export const quoteSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -23,34 +16,6 @@ export const contactSchema = z.object({
     subject: z.string().min(5, 'Subject must be at least 5 characters.'),
     message: z.string().min(10, 'Message must be at least 10 characters.'),
 });
-
-type RecommendationState = {
-    success?: RecommendTailoredServicesOutput;
-    error?: string;
-};
-
-export async function getServiceRecommendation(
-    prevState: RecommendationState,
-    formData: FormData
-): Promise<RecommendationState> {
-  const values = {
-      propertySize: formData.get('propertySize'),
-      securityConcerns: formData.get('securityConcerns'),
-  }
-  const validatedFields = recommendationSchema.safeParse(values);
-
-  if (!validatedFields.success) {
-    return { error: 'Invalid input.' };
-  }
-
-  try {
-    const result = await recommendTailoredServices(validatedFields.data);
-    return { success: result };
-  } catch (error) {
-    console.error('AI recommendation error:', error);
-    return { error: 'Failed to get recommendation. Please try again later.' };
-  }
-}
 
 type FormState = {
     success?: string;

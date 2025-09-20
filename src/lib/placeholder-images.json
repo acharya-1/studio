@@ -2,33 +2,33 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A modern building exterior with a sense of security.",
-      "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
-      "imageHint": "modern building"
+      "description": "A diverse group of professional workers in various industries.",
+      "imageUrl": "https://picsum.photos/seed/manpower/1920/1080",
+      "imageHint": "diverse workers"
     },
     {
       "id": "testimonial-1",
-      "description": "Avatar for Jane Doe",
+      "description": "Avatar for Mark Johnson",
       "imageUrl": "https://picsum.photos/seed/1/100/100",
-      "imageHint": "woman portrait"
+      "imageHint": "man professional"
     },
     {
       "id": "testimonial-2",
-      "description": "Avatar for John Smith",
+      "description": "Avatar for Sarah Lee",
       "imageUrl": "https://picsum.photos/seed/2/100/100",
-      "imageHint": "man portrait"
-    },
-    {
-      "id": "testimonial-3",
-      "description": "Avatar for Emily White",
-      "imageUrl": "https://picsum.photos/seed/3/100/100",
       "imageHint": "woman professional"
     },
     {
+      "id": "testimonial-3",
+      "description": "Avatar for David Chen",
+      "imageUrl": "https://picsum.photos/seed/3/100/100",
+      "imageHint": "man event coordinator"
+    },
+    {
       "id": "testimonial-4",
-      "description": "Avatar for Michael Brown",
+      "description": "Avatar for Jessica Miller",
       "imageUrl": "https://picsum.photos/seed/4/100/100",
-      "imageHint": "man casual"
+      "imageHint": "woman director"
     }
   ]
 }

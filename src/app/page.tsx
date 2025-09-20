@@ -38,20 +38,20 @@ export default function Home() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4 drop-shadow-lg">
-            Your Trusted Partner in Security & Facility Management
+            Reliable Manpower, On Demand
           </h1>
           <p className="text-lg md:text-xl mb-8 drop-shadow-md">
-            Providing comprehensive, tailored solutions to protect and maintain your property with excellence and integrity.
+            We connect businesses with a high-quality, vetted workforce for projects of any scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground transition-transform duration-300 hover:scale-105">
-              <Link href="/recommendations">Get AI Recommendation</Link>
+            <Button asChild size="lg" className="transition-transform duration-300 hover:scale-105">
+              <Link href="/services">Explore Our Services</Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="transition-transform duration-300 hover:scale-105">
-              <Link href="/quote">Request a Quote</Link>
+              <Link href="/quote">Request Staff</Link>
             </Button>
           </div>
         </div>
@@ -60,10 +60,10 @@ export default function Home() {
       <section id="about" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
-            About Protective Facilities
+            Your Strategic Staffing Partner
           </h2>
           <p className="text-muted-foreground text-lg">
-            Founded on the principles of trust, professionalism, and innovation, Protective Facilities offers a dual-service approach to property management. We integrate state-of-the-art security with meticulous housekeeping to provide a seamless, high-quality experience for our clients. Our mission is to create safe, clean, and welcoming environments, allowing you to focus on what matters most.
+            StaffHub was founded to solve one of the biggest challenges businesses face: finding reliable, skilled labor right when it's needed. We provide a streamlined platform to connect you with vetted professionals across various industries, from construction and logistics to events and hospitality. Our mission is to empower your business with the flexible workforce it needs to succeed.
           </p>
         </div>
       </section>
@@ -71,9 +71,9 @@ export default function Home() {
       <section id="services" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Our Core Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Find the Right Talent</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-2">
-              A glimpse into our security and housekeeping solutions designed for your peace of mind.
+              Explore our core staffing solutions designed to meet your business demands.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <Button asChild size="lg" className="transition-transform duration-300 hover:scale-105">
-              <Link href="/services">Explore All Services</Link>
+              <Link href="/services">View All Specializations</Link>
             </Button>
           </div>
         </div>
@@ -102,9 +102,9 @@ export default function Home() {
       <section id="testimonials" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Trusted By Industry Leaders</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-2">
-              Real stories from satisfied partners who trust us with their facilities.
+              See how we've helped businesses like yours achieve their goals.
             </p>
           </div>
           <Carousel
@@ -152,18 +152,18 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-16 md:py-24 bg-secondary">
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">Ready to Secure and Enhance Your Property?</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-              Let our AI help you find the perfect service package, or contact us directly for a personalized quote.
+            <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">Ready to Build Your Team?</h2>
+            <p className="opacity-90 text-lg max-w-2xl mx-auto mb-8">
+              Let us handle the staffing, so you can focus on growing your business. Get a free quote today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground transition-transform duration-300 hover:scale-105">
-                <Link href="/recommendations">Get AI Recommendation</Link>
+              <Button asChild size="lg" variant="secondary" className="transition-transform duration-300 hover:scale-105">
+                <Link href="/quote">Request Staff Now</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="transition-transform duration-300 hover:scale-105">
-                <Link href="/contact">Contact Us</Link>
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-transform duration-300 hover:scale-105">
+                <Link href="/contact">Contact Sales</Link>
               </Button>
           </div>
         </div>

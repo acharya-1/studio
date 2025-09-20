@@ -6,13 +6,12 @@ import { useState } from 'react';
 import { Logo } from './logo';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Menu, ShieldCheck } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
-  { href: '/recommendations', label: 'AI Recommendations' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
@@ -42,7 +41,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-4">
           <Button asChild className="hidden sm:inline-flex transition-transform duration-300 hover:scale-105">
-            <Link href="/quote">Request a Quote</Link>
+            <Link href="/quote">Request Staff</Link>
           </Button>
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -74,7 +73,7 @@ export function Header() {
                     ))}
                   </nav>
                   <Button asChild className="w-full mt-8" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Link href="/quote">Request a Quote</Link>
+                    <Link href="/quote">Request Staff</Link>
                   </Button>
                 </div>
               </SheetContent>
