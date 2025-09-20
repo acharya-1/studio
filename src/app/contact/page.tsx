@@ -28,7 +28,6 @@ export default function ContactPage() {
       subject: '',
       message: '',
     },
-    context: state,
   });
 
   useEffect(() => {
