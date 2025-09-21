@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A professional woman working at a desk with a laptop.",
-      "imageUrl": "https://picsum.photos/seed/hero-work/1920/1080",
-      "imageHint": "woman working"
+      "description": "Dark underground subway tunnel with lights on the ceiling.",
+      "imageUrl": "https://picsum.photos/seed/subway-tunnel/1920/1080",
+      "imageHint": "dark tunnel"
     },
     {
       "id": "about-us",

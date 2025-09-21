@@ -33,10 +33,12 @@ export function Header() {
     };
   }, []);
 
+  const isHomePage = pathname === '/';
+
   return (
     <header className={cn(
-      'sticky top-0 z-50 transition-all duration-300',
-      isScrolled ? 'bg-background/80 backdrop-blur-md border-b shadow-sm' : 'bg-transparent border-b-transparent'
+      'fixed top-0 w-full z-50 transition-all duration-300',
+      isScrolled || !isHomePage ? 'bg-background/80 backdrop-blur-md border-b' : 'bg-transparent border-b-transparent'
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" aria-label="Back to homepage">
@@ -48,10 +50,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                'px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-primary/10',
+                'px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-primary',
                 pathname === link.href 
                   ? 'text-primary' 
-                  : isScrolled ? 'text-foreground' : 'text-white'
+                  : 'text-foreground'
               )}
             >
               {link.label}
@@ -66,7 +68,7 @@ export function Header() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open mobile menu" className={cn('hover:bg-primary/10', isScrolled ? 'text-foreground' : 'text-white')}>
+                <Button variant="ghost" size="icon" aria-label="Open mobile menu" className={cn('hover:bg-primary/10', 'text-foreground')}>
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>

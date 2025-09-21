@@ -53,9 +53,9 @@ export default function Home() {
   const featuredServices = services.slice(0, 3);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-background">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[700px] w-full flex items-center bg-secondary/30 dark:bg-card overflow-hidden">
+      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center hero-clip-path overflow-hidden">
         <div className="absolute inset-0 z-0">
           {heroImage && (
             <Image
@@ -67,33 +67,36 @@ export default function Home() {
               priority
             />
           )}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
-        <div className="absolute top-0 right-0 h-full w-full bg-accent" style={{clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 40% 100%)'}}></div>
-
-        <div className="container mx-auto px-4 relative z-10 grid md:grid-cols-2 items-center gap-8">
-          <div className="text-background md:text-foreground">
-            <h1 className="text-5xl md:text-7xl font-bold font-headline mb-6 drop-shadow-2xl slide-up text-white md:text-black">
-              <span className="block">Reliable Manpower,</span>
-              <span className="block text-primary">On Demand</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl mb-12 drop-shadow-lg max-w-xl leading-relaxed fade-in-up text-white/90 md:text-black/70">
-              Connect with skilled professionals instantly. Find the perfect workforce for your business needs.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-start mb-16 fade-in-up">
-              <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
-                <Link href="/quote">Request Staff</Link>
-              </Button>
+        <div className="container mx-auto px-4 relative z-10 mt-20">
+            <div className="grid md:grid-cols-2 items-center gap-8">
+                <div className="text-white">
+                    <h1 className="text-5xl md:text-7xl font-bold font-headline mb-6 slide-up">
+                    Reliable Manpower, On Demand
+                    </h1>
+                    <p className="text-xl md:text-2xl mb-12 max-w-xl leading-relaxed fade-in-up text-white/80">
+                    Connect with skilled professionals instantly. Find the perfect workforce for your business needs.
+                    </p>
+                    <div className="flex gap-4 fade-in-up">
+                        <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg px-8 py-4 text-lg">
+                            <Link href="/quote">Request Staff</Link>
+                        </Button>
+                    </div>
+                </div>
+                <div className="text-white text-right hidden md:block">
+                    <div className="inline-block">
+                        <p className="text-7xl font-bold text-primary">4+</p>
+                        <p className="text-lg text-white/80">Years of Experience</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-background">
+      <section id="about" className="py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -138,30 +141,30 @@ export default function Home() {
       </section>
 
       {/* Features Section (Who do we help) */}
-      <section className="py-24 bg-gray-900 text-white angled-section-b">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
               Who Do We Help?
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our flexible platform serves a wide range of industries and business sizes.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {featuredServices.map((feature, index) => (
-              <Card key={feature.title} className="group text-center bg-gray-800 border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg stagger-animation opacity-0">
+              <Card key={feature.title} className="group text-center bg-secondary border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg stagger-animation opacity-0">
                 <CardHeader className="items-center pb-4">
-                  <div className="bg-gray-700 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="bg-background p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl font-headline text-white group-hover:text-primary transition-colors">
+                  <CardTitle className="text-xl font-headline text-foreground group-hover:text-primary transition-colors">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardDescription className="text-base leading-relaxed text-white/60">
+                  <CardDescription className="text-base leading-relaxed text-muted-foreground">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -172,7 +175,7 @@ export default function Home() {
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 bg-background">
+      <section id="testimonials" className="py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
@@ -196,13 +199,13 @@ export default function Home() {
                 return(
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1 h-full">
-                    <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-secondary/50 dark:bg-card">
+                    <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-background">
                       <CardContent className="p-0 pb-8">
                         <div className="flex mb-4">
                           {Array.from({ length: 5 }).map((_, i) => (
                             <Star
                               key={i}
-                              className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                              className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-500'}`}
                             />
                           ))}
                         </div>
@@ -234,9 +237,8 @@ export default function Home() {
       </section>
       
       {/* CTA Section */}
-       <section className="py-24 bg-background relative">
-        <div className="absolute inset-x-0 top-0 h-48 bg-accent" style={{clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 100%)'}}></div>
-        <div className="container mx-auto px-4 text-center relative">
+       <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
               Ready to Build Your Team?
             </h2>
