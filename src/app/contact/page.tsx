@@ -49,8 +49,8 @@ export default function ContactPage() {
   }, [state, toast, form]);
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
-      <Card className="max-w-2xl mx-auto">
+    <div className="container py-24 md:py-32">
+      <Card className="max-w-2xl mx-auto shadow-lg">
         <CardHeader>
           <CardTitle className="text-3xl font-headline">Contact Us</CardTitle>
           <CardDescription>

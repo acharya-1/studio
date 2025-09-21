@@ -4,6 +4,13 @@ import { Header } from '@/app/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/theme-provider';
+import { Figtree } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  variable: '--font-figtree',
+});
 
 export const metadata: Metadata = {
   title: 'StaffHub - Flexible Manpower Solutions',
@@ -24,12 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased bg-background">
+      <body className={cn("font-sans antialiased bg-background", figtree.variable)}>
         <ThemeProvider
             attribute="class"
             defaultTheme="dark"

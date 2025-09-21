@@ -79,16 +79,16 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-secondary/30 dark:bg-card">
+      <section className="relative py-32 bg-secondary/30 dark:bg-card">
         <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-background text-foreground">
+        <div className="container text-center relative z-10">
+          <Badge className="mb-6 bg-background text-foreground text-sm">
             About StaffHub
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 text-white">
+          <h1 className="text-5xl md:text-6xl font-bold font-headline mb-8 text-white leading-tight">
             Connecting Talent with Opportunity
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
             We're on a mission to transform how businesses find and work with skilled professionals, 
             creating a world where talent knows no boundaries.
           </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
             <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-secondary/50 dark:bg-card">
               <CardHeader className="text-center pb-6">
@@ -134,15 +134,15 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="py-24 bg-secondary/30 dark:bg-card angled-section-b">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               Our Values
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               What Drives Us Forward
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our core values shape every decision we make and every relationship we build.
             </p>
           </div>
@@ -171,15 +171,15 @@ export default function AboutPage() {
 
       {/* Timeline */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
-             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               Our Journey
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               Milestones & Achievements
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               From a simple idea to a platform that's transforming industries worldwide.
             </p>
           </div>
@@ -195,7 +195,7 @@ export default function AboutPage() {
                     <Card className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-secondary/30">
                       <CardHeader className="pb-3">
                         <div className="flex items-center gap-4">
-                          <Badge className="bg-secondary text-secondary-foreground text-lg px-3 py-1">
+                          <Badge className="bg-secondary text-secondary-foreground text-base px-3 py-1">
                             {milestone.year}
                           </Badge>
                           <CardTitle className="text-xl font-headline">
@@ -219,15 +219,15 @@ export default function AboutPage() {
 
       {/* Team */}
       <section className="py-24 bg-secondary/30 dark:bg-card">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               Meet the Team
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               The People Behind StaffHub
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our diverse team of experts is passionate about connecting talent with opportunity.
             </p>
           </div>
@@ -267,11 +267,11 @@ export default function AboutPage() {
 
       {/* Achievements */}
       <section className="py-24 bg-gray-900 text-white relative angled-section-b-sm">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-white/20 text-white border-white/30">
+        <div className="container text-center relative z-10">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 text-sm">
             By the Numbers
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-16 leading-tight">
             Our Impact in Numbers
           </h2>
           
@@ -281,7 +281,7 @@ export default function AboutPage() {
                 <div className="text-4xl md:text-5xl font-bold mb-2 text-primary">
                   {achievement.metric}
                 </div>
-                <div className="text-gray-300 text-lg">
+                <div className="text-gray-300 text-base">
                   {achievement.label}
                 </div>
               </div>
@@ -292,23 +292,23 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+        <div className="container text-center">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
             Ready to Join Our Mission?
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
             Whether you're a business looking for talent or a professional seeking opportunities, 
             we'd love to have you as part of the StaffHub community.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
+            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 px-8 py-3 text-base font-semibold">
               <Link href="/quote">
                 Get Started Today
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="group hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
+            <Button asChild size="lg" variant="outline" className="group hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 px-8 py-3 text-base font-semibold">
               <Link href="/contact">Learn More</Link>
             </Button>
           </div>

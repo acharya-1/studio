@@ -31,24 +31,6 @@ const stats = [
   { label: 'Client Satisfaction', value: '98%' },
 ];
 
-const features = [
-  {
-    icon: Zap,
-    title: 'Instant Matching',
-    description: 'AI-powered algorithm matches you with the perfect workforce in minutes, not days.',
-  },
-  {
-    icon: Shield,
-    title: 'Verified Professionals',
-    description: 'All workers are background-checked, certified, and rated by previous clients.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Scalable Solutions',
-    description: 'From single workers to entire teams, scale your workforce up or down instantly.',
-  },
-];
-
 export default function Home() {
   const featuredServices = services.slice(0, 3);
 
@@ -70,25 +52,25 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 mt-20">
-            <div className="grid md:grid-cols-2 items-center gap-8">
+        <div className="container relative z-10">
+            <div className="grid md:grid-cols-2 items-center gap-12">
                 <div className="text-white">
-                    <h1 className="text-5xl md:text-7xl font-bold font-headline mb-6 slide-up">
+                    <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
                     Reliable Manpower, On Demand
                     </h1>
-                    <p className="text-xl md:text-2xl mb-12 max-w-xl leading-relaxed fade-in-up text-white/80">
+                    <p className="text-lg md:text-xl mb-12 max-w-xl leading-relaxed fade-in-up text-white/80">
                     Connect with skilled professionals instantly. Find the perfect workforce for your business needs.
                     </p>
                     <div className="flex gap-4 fade-in-up">
-                        <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg px-8 py-4 text-lg">
+                        <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg px-8 py-4 text-base font-semibold">
                             <Link href="/quote">Request Staff</Link>
                         </Button>
                     </div>
                 </div>
                 <div className="text-white text-right hidden md:block">
                     <div className="inline-block">
-                        <p className="text-7xl font-bold text-primary">4+</p>
-                        <p className="text-lg text-white/80">Years of Experience</p>
+                        <p className="text-6xl font-bold text-primary">4+</p>
+                        <p className="text-base text-white/80">Years of Experience</p>
                     </div>
                 </div>
             </div>
@@ -96,8 +78,8 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-24 bg-secondary/30">
+        <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
                {aboutImage && (
@@ -112,16 +94,16 @@ export default function Home() {
                 )}
             </div>
             <div>
-              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
                 Who We Are
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
                 Your Strategic Staffing Partner
               </h2>
-              <p className="text-muted-foreground text-xl leading-relaxed mb-8">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                 StaffHub was founded to solve one of the biggest challenges businesses face: finding reliable, skilled labor right when it's needed. We provide a streamlined platform to connect you with vetted professionals across various industries.
               </p>
-              <div className="grid grid-cols-3 gap-8 text-center mb-8">
+              <div className="grid grid-cols-3 gap-8 text-center mb-10">
                 {stats.map((stat, index) => (
                   <div key={stat.label}>
                     <div className="text-4xl font-bold text-primary mb-1">{stat.value}</div>
@@ -129,10 +111,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-               <Button asChild size="lg" variant="outline" className="group border-primary text-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg font-semibold">
+               <Button asChild size="lg" variant="outline" className="group border-primary text-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 px-8 py-3 text-base font-semibold">
                 <Link href="/about">
                   Learn More
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </div>
@@ -142,19 +124,19 @@ export default function Home() {
 
       {/* Features Section (Who do we help) */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               Who Do We Help?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our flexible platform serves a wide range of industries and business sizes.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {featuredServices.map((feature, index) => (
-              <Card key={feature.title} className="group text-center bg-secondary border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg stagger-animation opacity-0">
+              <Card key={feature.title} className="group text-center bg-secondary/30 border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg stagger-animation opacity-0">
                 <CardHeader className="items-center pb-4">
                   <div className="bg-background p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <feature.icon className="w-8 h-8 text-primary" />
@@ -175,16 +157,16 @@ export default function Home() {
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section id="testimonials" className="py-24 bg-secondary/30">
+        <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               Client Success Stories
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               Trusted By Industry Leaders
             </h2>
-            <p className="text-muted-foreground text-xl max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
               See how we've helped businesses like yours achieve their goals.
             </p>
           </div>
@@ -209,7 +191,7 @@ export default function Home() {
                             />
                           ))}
                         </div>
-                        <p className="text-muted-foreground italic text-lg leading-relaxed">
+                        <p className="text-muted-foreground italic text-base md:text-lg leading-relaxed">
                           "{testimonial.quote}"
                         </p>
                       </CardContent>
@@ -238,18 +220,18 @@ export default function Home() {
       
       {/* CTA Section */}
        <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+        <div className="container text-center">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               Ready to Build Your Team?
             </h2>
-            <p className="text-xl max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
+            <p className="text-lg max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
               Let us handle the staffing, so you can focus on growing your business. Get a free quote today and experience the StaffHub difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
+              <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-3 text-base font-semibold">
                 <Link href="/quote">
                   Request Staff Now
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
           </div>

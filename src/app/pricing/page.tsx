@@ -68,30 +68,6 @@ const plans = [
   }
 ];
 
-const addOns = [
-  {
-    name: 'Background Check Plus',
-    price: '$25',
-    period: 'per worker',
-    description: 'Enhanced background verification including criminal history and reference checks',
-    icon: Shield
-  },
-  {
-    name: 'Rush Delivery',
-    price: '$50',
-    period: 'per request',
-    description: 'Get matched workers within 2 hours for urgent staffing needs',
-    icon: Rocket
-  },
-  {
-    name: 'Skills Assessment',
-    price: '$15',
-    period: 'per worker',
-    description: 'Comprehensive skills testing and certification verification',
-    icon: Users
-  }
-];
-
 const faqs = [
   {
     question: 'How does the pricing work?',
@@ -119,17 +95,17 @@ export default function PricingPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-secondary/30 dark:bg-card">
+      <section className="relative py-32 bg-secondary/30 dark:bg-card">
         <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-background text-foreground">
+        <div className="container text-center relative z-10">
+          <Badge className="mb-6 bg-background text-foreground text-sm">
             <Sparkles className="w-3 h-3 mr-1" />
             Transparent Pricing
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 text-white">
+          <h1 className="text-5xl md:text-6xl font-bold font-headline mb-8 text-white leading-tight">
             Simple, Fair Pricing
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-8">
             Choose the perfect plan for your business. Start free, scale as you grow, 
             and only pay for what you need.
           </p>
@@ -138,12 +114,12 @@ export default function PricingPage() {
 
       {/* Pricing Plans */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
             {plans.map((plan, index) => (
               <Card key={plan.name} className={`relative group transition-all duration-500 hover:-translate-y-2 border shadow-lg overflow-hidden ${plan.popular ? 'ring-2 ring-primary shadow-2xl' : 'hover:shadow-2xl'}`}>
                 {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-primary text-white text-center py-2 px-4 text-sm font-semibold rounded-bl-lg">
+                  <div className="absolute top-0 right-0 bg-primary text-white text-center py-2 px-4 text-xs font-semibold rounded-bl-lg">
                     Popular
                   </div>
                 )}
@@ -175,7 +151,7 @@ export default function PricingPage() {
                 <div className="p-6 pt-2">
                    <Button 
                     asChild 
-                    className={`w-full group transition-all duration-300 hover:scale-105 ${
+                    className={`w-full group transition-all duration-300 hover:scale-105 font-semibold ${
                       plan.popular 
                         ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
                         : 'bg-primary/10 text-primary hover:bg-primary/20'
@@ -196,15 +172,15 @@ export default function PricingPage() {
 
       {/* FAQ */}
       <section className="py-24 bg-secondary/30 dark:bg-card angled-section-b">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               FAQ
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Got questions? We've got answers. Can't find what you're looking for? Contact our support team.
             </p>
           </div>
@@ -231,23 +207,23 @@ export default function PricingPage() {
       {/* CTA */}
       <section className="py-24 bg-background relative">
         <div className="absolute inset-x-0 top-0 h-48 bg-accent" style={{clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 100%)'}}></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold font-headline mb-6">
+        <div className="container text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
             Start Building Your Team Today
           </h2>
-          <p className="text-xl max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
+          <p className="text-lg max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
             Join thousands of businesses that trust StaffHub for their workforce needs. 
             Start free and scale as you grow.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-3 text-base font-semibold">
               <Link href="/quote">
                 Start Free
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="group border-primary text-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" variant="outline" className="group border-primary text-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 px-8 py-3 text-base font-semibold">
               <Link href="/contact">Talk to Sales</Link>
             </Button>
           </div>
