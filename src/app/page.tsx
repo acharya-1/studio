@@ -37,7 +37,8 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background">
       {/* Hero Section */}
-      <section className="bg-secondary/30 relative h-screen min-h-[700px] w-full flex flex-col justify-center hero-clip-path overflow-hidden  ">
+      <div className='bg-secondary/30'>
+      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center hero-clip-path overflow-hidden">
         <div className="absolute inset-0 z-0">
           {heroImage && (
             <Image
@@ -50,8 +51,9 @@ export default function Home() {
             />
           )}
         </div>
+        <div className="absolute inset-0 bg-black/70"></div>
 
-        <div className="container relative z-10 w-[85%] mx-auto">
+        <div className="container relative z-10 mx-auto">
             <div className="grid md:grid-cols-2 items-center gap-12">
                 <div className="text-white">
                     <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
@@ -74,7 +76,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-      </section>
+      </section></div>
 
       {/* About Section */}
       <section id="about" className="py-24 bg-secondary/30">
