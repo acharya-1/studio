@@ -53,7 +53,7 @@ export function Header() {
                 'px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-primary',
                 pathname === link.href 
                   ? 'text-primary' 
-                  : 'text-foreground'
+                  : isHomePage && !isScrolled ? 'text-white' : 'text-foreground'
               )}
             >
               {link.label}
@@ -68,7 +68,7 @@ export function Header() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open mobile menu" className={cn('hover:bg-primary/10', 'text-foreground')}>
+                <Button variant="ghost" size="icon" aria-label="Open mobile menu" className={cn('hover:bg-primary/10', isHomePage && !isScrolled ? 'text-white' : 'text-foreground')}>
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
