@@ -110,7 +110,7 @@
   .stagger-animation:nth-child(6) { animation-delay: 0.6s; }
 
   .hero-clip-path {
-    clip-path: path('M0 0 H100 V90 H55 C52.5 95, 47.5 95, 45 90 H0 Z');
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
   }
 
   .angled-section-t {

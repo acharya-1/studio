@@ -38,7 +38,7 @@ export default function Home() {
     <div className="flex flex-col bg-background">
       {/* Hero Section */}
       <div className='bg-secondary/30'>
-      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center overflow-hidden ">
         <div className="absolute inset-0 z-0">
           {heroImage && (
             <Image
@@ -54,7 +54,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/70"></div>
         <div className='hero-clip-path absolute inset-0 bg-secondary/30'></div>
 
-        <div className="container relative z-10 mx-auto w-[85%]">
+        <div className="container relative z-10 mx-auto">
             <div className="grid md:grid-cols-2 items-center gap-12">
                 <div className="text-white">
                     <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
