@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Logo } from './logo';
-import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { useState, useEffect } from 'react';
+import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from './theme-toggle';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -21,30 +21,40 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b">
+    <header className={cn(
+      'sticky top-0 z-50 transition-all duration-300',
+      isScrolled ? 'bg-background/80 backdrop-blur-md border-b shadow-sm' : 'bg-transparent border-b-transparent'
+    )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" aria-label="Back to homepage">
           <Logo />
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                'text-sm font-medium transition-all duration-300 hover:text-primary relative group',
+                'px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-primary/10',
                 pathname === link.href 
                   ? 'text-primary' 
-                  : 'text-muted-foreground'
+                  : isScrolled ? 'text-foreground' : 'text-white'
               )}
             >
               {link.label}
-              <span className={cn(
-                'absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full',
-                pathname === link.href && 'w-full'
-              )} />
             </Link>
           ))}
         </nav>
@@ -56,7 +66,7 @@ export function Header() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" aria-label="Open mobile menu" className="hover:bg-accent">
+                <Button variant="ghost" size="icon" aria-label="Open mobile menu" className={cn('hover:bg-primary/10', isScrolled ? 'text-foreground' : 'text-white')}>
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -67,15 +77,15 @@ export function Header() {
                         <Logo />
                      </Link>
                   </div>
-                  <nav className="flex flex-col gap-8">
+                  <nav className="flex flex-col gap-4">
                     {navLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={cn(
-                          'text-lg font-medium transition-all duration-300 hover:text-primary hover:translate-x-2',
-                          pathname === link.href ? 'text-primary' : 'text-foreground'
+                          'text-lg font-medium transition-all duration-300 px-4 py-2 rounded-md',
+                          pathname === link.href ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'
                         )}
                       >
                         {link.label}

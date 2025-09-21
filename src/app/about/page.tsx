@@ -79,16 +79,16 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-secondary/30 dark:bg-card overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-5" />
+      <section className="relative py-24 bg-secondary/30 dark:bg-card">
+        <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6">
+          <Badge className="mb-6 bg-background text-foreground">
             About StaffHub
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 gradient-text">
+          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 text-white">
             Connecting Talent with Opportunity
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
             We're on a mission to transform how businesses find and work with skilled professionals, 
             creating a world where talent knows no boundaries.
           </p>
@@ -101,8 +101,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
             <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-secondary/50 dark:bg-card">
               <CardHeader className="text-center pb-6">
-                <div className="mx-auto bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Target className="w-8 h-8 text-white" />
+                <div className="mx-auto bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-8 h-8 text-primary" />
                 </div>
                 <CardTitle className="text-2xl font-headline">Our Mission</CardTitle>
               </CardHeader>
@@ -116,8 +116,8 @@ export default function AboutPage() {
 
             <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-secondary/50 dark:bg-card">
               <CardHeader className="text-center pb-6">
-                <div className="mx-auto bg-gradient-to-br from-purple-500 to-pink-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Award className="w-8 h-8 text-white" />
+                <div className="mx-auto bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-8 h-8 text-primary" />
                 </div>
                 <CardTitle className="text-2xl font-headline">Our Vision</CardTitle>
               </CardHeader>
@@ -133,13 +133,13 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-secondary/30 dark:bg-card">
+      <section className="py-24 bg-secondary/30 dark:bg-card angled-section-b">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
               Our Values
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
               What Drives Us Forward
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -151,8 +151,8 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <Card key={value.title} className={`group text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg stagger-animation opacity-0`}>
                 <CardHeader>
-                  <div className="mx-auto bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <value.icon className="w-8 h-8 text-white" />
+                  <div className="mx-auto bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <value.icon className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="font-headline group-hover:text-primary transition-colors">
                     {value.title}
@@ -173,10 +173,10 @@ export default function AboutPage() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4">
+             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
               Our Journey
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
               Milestones & Achievements
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -186,13 +186,13 @@ export default function AboutPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary"></div>
               
               {milestones.map((milestone, index) => (
                 <div key={milestone.year} className="relative flex items-center mb-12 last:mb-0">
-                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-background shadow-lg"></div>
+                  <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
                   <div className="ml-20">
-                    <Card className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                    <Card className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-secondary/30">
                       <CardHeader className="pb-3">
                         <div className="flex items-center gap-4">
                           <Badge className="bg-secondary text-secondary-foreground text-lg px-3 py-1">
@@ -221,10 +221,10 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary/30 dark:bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
               Meet the Team
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
               The People Behind StaffHub
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -250,7 +250,7 @@ export default function AboutPage() {
                   <CardTitle className="text-xl font-headline group-hover:text-primary transition-colors">
                     {member.name}
                   </CardTitle>
-                  <CardDescription className="text-primary/80 font-medium">
+                  <CardDescription className="text-primary font-medium">
                     {member.role}
                   </CardDescription>
                 </CardHeader>
@@ -266,8 +266,7 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" />
+      <section className="py-24 bg-gray-900 text-white relative angled-section-b-sm">
         <div className="container mx-auto px-4 text-center relative z-10">
           <Badge className="mb-6 bg-white/20 text-white border-white/30">
             By the Numbers
@@ -279,7 +278,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
               <div key={achievement.label} className={`text-center stagger-animation opacity-0`}>
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-white">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-primary">
                   {achievement.metric}
                 </div>
                 <div className="text-gray-300 text-lg">
@@ -294,7 +293,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
             Ready to Join Our Mission?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
@@ -309,7 +308,7 @@ export default function AboutPage() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="group hover:bg-accent transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
+            <Button asChild size="lg" variant="outline" className="group hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
               <Link href="/contact">Learn More</Link>
             </Button>
           </div>

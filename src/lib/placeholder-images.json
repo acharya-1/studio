@@ -2,9 +2,15 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A diverse group of professional workers in various industries.",
-      "imageUrl": "https://picsum.photos/seed/manpower/1920/1080",
-      "imageHint": "diverse workers"
+      "description": "A professional woman working at a desk with a laptop.",
+      "imageUrl": "https://picsum.photos/seed/hero-work/1920/1080",
+      "imageHint": "woman working"
+    },
+    {
+      "id": "about-us",
+      "description": "A group of diverse professionals in a meeting.",
+      "imageUrl": "https://picsum.photos/seed/about-meeting/500/500",
+      "imageHint": "team meeting"
     },
     {
       "id": "testimonial-1",

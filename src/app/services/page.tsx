@@ -34,68 +34,31 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-secondary/30 dark:bg-card overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-5" />
+      <section className="relative py-24 bg-secondary/30 dark:bg-card">
+         <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6">
+          <Badge className="mb-6 bg-background text-foreground">
             Our Services
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 gradient-text">
+          <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 text-white">
             Workforce Solutions
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
             We provide a comprehensive range of skilled and reliable professionals to meet the diverse needs of your business.
           </p>
         </div>
       </section>
 
-      {/* Service Categories Overview */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4">
-              Service Categories
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
-              Three Core Categories
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From specialized expertise to general support, we cover all your workforce needs.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
-            {serviceCategories.map((category, index) => (
-              <Card key={category.name} className={`group text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg stagger-animation opacity-0 bg-secondary/50 dark:bg-card`}>
-                <CardHeader className="pb-4">
-                  <div className={`mx-auto bg-gradient-to-br ${category.gradient} p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <category.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-headline group-hover:text-primary transition-colors">
-                    {category.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    {category.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Detailed Services */}
-      <section className="py-24 bg-secondary/30 dark:bg-card">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           {/* Skilled Labor */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <Badge className="mb-4">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                 Skilled Labor
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 gradient-text">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
                 Expert Professionals
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -104,11 +67,10 @@ export default function ServicesPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skilledLabor.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-0 shadow-lg bg-card overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
                 <CardHeader className="flex-row items-center gap-4 relative z-10">
-                  <div className="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
-                     <service.icon className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-purple-600 transition-colors duration-300" />
+                  <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
+                     <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
                   </div>
                   <CardTitle className="font-headline group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
                 </CardHeader>
@@ -123,10 +85,10 @@ export default function ServicesPage() {
           {/* General Labor */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <Badge className="mb-4">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                 General Labor
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 gradient-text">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
                 Reliable Workforce
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -135,11 +97,10 @@ export default function ServicesPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {generalLabor.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-0 shadow-lg bg-card overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
                 <CardHeader className="flex-row items-center gap-4 relative z-10">
-                  <div className="bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-900 dark:to-teal-900 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
-                     <service.icon className="w-6 h-6 text-green-600 dark:text-green-400 group-hover:text-teal-600 transition-colors duration-300" />
+                  <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
+                     <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
                   </div>
                   <CardTitle className="font-headline group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
                 </CardHeader>
@@ -154,10 +115,10 @@ export default function ServicesPage() {
           {/* Event Services */}
           <div>
             <div className="text-center mb-12">
-              <Badge className="mb-4">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                 Event Services
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 gradient-text">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
                 Event & Hospitality Staff
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -166,11 +127,10 @@ export default function ServicesPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventServices.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-0 shadow-lg bg-card overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
                 <CardHeader className="flex-row items-center gap-4 relative z-10">
-                  <div className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
-                     <service.icon className="w-6 h-6 text-purple-600 dark:text-purple-400 group-hover:text-pink-600 transition-colors duration-300" />
+                  <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
+                     <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
                   </div>
                   <CardTitle className="font-headline group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
                 </CardHeader>
@@ -185,28 +145,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" />
+      <section className="py-24 bg-background relative">
+        <div className="absolute inset-x-0 top-0 h-48 bg-accent" style={{clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 100%)'}}></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-white/20 text-white border-white/30">
-            Ready to Get Started?
-          </Badge>
           <h2 className="text-4xl md:text-6xl font-bold font-headline mb-6">
             Need to Fill a Role?
           </h2>
-          <p className="text-xl max-w-3xl mx-auto mb-12 leading-relaxed opacity-90">
+          <p className="text-xl max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
             Tell us your requirements, and we'll connect you with the right people for the job. 
             Get matched with qualified professionals in minutes, not days.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="group bg-white text-black hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
               <Link href="/quote">
                 Request Staff Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="group border-white/30 text-white hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" variant="outline" className="group border-primary text-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg font-semibold">
               <Link href="/contact">Talk to an Expert</Link>
             </Button>
           </div>
