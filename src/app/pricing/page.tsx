@@ -139,10 +139,10 @@ export default function PricingPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+      <section className="relative py-24 bg-secondary/30 dark:bg-card overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-5" />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-blue-100 text-blue-800 border-blue-200">
+          <Badge className="mb-6">
             <Sparkles className="w-3 h-3 mr-1" />
             Transparent Pricing
           </Badge>
@@ -169,7 +169,7 @@ export default function PricingPage() {
       {/* Pricing Plans */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
             {plans.map((plan, index) => (
               <Card key={plan.name} className={`relative group transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg overflow-hidden ${plan.popular ? 'ring-2 ring-purple-500 shadow-2xl scale-105' : 'hover:shadow-2xl'}`}>
                 {plan.popular && (
@@ -197,8 +197,8 @@ export default function PricingPage() {
                     asChild 
                     className={`w-full mb-8 group transition-all duration-300 hover:scale-105 ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600' 
-                        : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white' 
+                        : 'bg-primary text-primary-foreground hover:bg-primary/90'
                     }`}
                     size="lg"
                   >
@@ -230,7 +230,7 @@ export default function PricingPage() {
                         <ul className="space-y-3">
                           {plan.limitations.map((limitation, limitationIndex) => (
                             <li key={limitationIndex} className="flex items-start gap-3">
-                              <div className="w-5 h-5 rounded-full border-2 border-gray-300 mt-0.5 flex-shrink-0" />
+                              <div className="w-5 h-5 rounded-full border-2 border-muted mt-0.5 flex-shrink-0" />
                               <span className="text-sm text-muted-foreground">{limitation}</span>
                             </li>
                           ))}
@@ -246,10 +246,10 @@ export default function PricingPage() {
       </section>
 
       {/* Add-ons */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+      <section className="py-24 bg-secondary/30 dark:bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
+            <Badge className="mb-4">
               Add-on Services
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
@@ -267,7 +267,7 @@ export default function PricingPage() {
                   <div className="mx-auto bg-gradient-to-br from-green-500 to-teal-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <addon.icon className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-headline group-hover:text-green-600 transition-colors">
+                  <CardTitle className="text-xl font-headline group-hover:text-primary transition-colors">
                     {addon.name}
                   </CardTitle>
                   <div className="text-2xl font-bold text-green-600 mt-2">
@@ -290,7 +290,7 @@ export default function PricingPage() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-purple-100 text-purple-800 border-purple-200">
+            <Badge className="mb-4">
               FAQ
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
@@ -303,7 +303,7 @@ export default function PricingPage() {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-sm">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-sm bg-secondary/30 dark:bg-card">
                 <CardHeader>
                   <CardTitle className="text-lg font-headline text-left">
                     {faq.question}
@@ -321,7 +321,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <Badge className="mb-6 bg-white/20 text-white border-white/30">
@@ -336,7 +336,7 @@ export default function PricingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="group bg-white text-blue-900 hover:bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" className="group bg-white text-black hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl px-8 py-4 text-lg font-semibold">
               <Link href="/quote">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

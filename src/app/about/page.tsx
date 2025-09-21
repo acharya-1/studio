@@ -79,10 +79,10 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+      <section className="relative py-24 bg-secondary/30 dark:bg-card overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-5" />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge className="mb-6 bg-blue-100 text-blue-800 border-blue-200">
+          <Badge className="mb-6">
             About StaffHub
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold font-headline mb-8 gradient-text">
@@ -99,7 +99,7 @@ export default function AboutPage() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-700">
+            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-secondary/50 dark:bg-card">
               <CardHeader className="text-center pb-6">
                 <div className="mx-auto bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Target className="w-8 h-8 text-white" />
@@ -114,7 +114,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-purple-50 to-white dark:from-gray-800 dark:to-gray-700">
+            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-secondary/50 dark:bg-card">
               <CardHeader className="text-center pb-6">
                 <div className="mx-auto bg-gradient-to-br from-purple-500 to-pink-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Award className="w-8 h-8 text-white" />
@@ -133,10 +133,10 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+      <section className="py-24 bg-secondary/30 dark:bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
+            <Badge className="mb-4">
               Our Values
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
@@ -154,7 +154,7 @@ export default function AboutPage() {
                   <div className="mx-auto bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="font-headline group-hover:text-blue-600 transition-colors">
+                  <CardTitle className="font-headline group-hover:text-primary transition-colors">
                     {value.title}
                   </CardTitle>
                 </CardHeader>
@@ -173,7 +173,7 @@ export default function AboutPage() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-purple-100 text-purple-800 border-purple-200">
+            <Badge className="mb-4">
               Our Journey
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
@@ -190,12 +190,12 @@ export default function AboutPage() {
               
               {milestones.map((milestone, index) => (
                 <div key={milestone.year} className="relative flex items-center mb-12 last:mb-0">
-                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-background shadow-lg"></div>
                   <div className="ml-20">
                     <Card className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
                       <CardHeader className="pb-3">
                         <div className="flex items-center gap-4">
-                          <Badge className="bg-blue-100 text-blue-800 text-lg px-3 py-1">
+                          <Badge className="bg-secondary text-secondary-foreground text-lg px-3 py-1">
                             {milestone.year}
                           </Badge>
                           <CardTitle className="text-xl font-headline">
@@ -218,10 +218,10 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-24 bg-secondary/30 dark:bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-yellow-100 text-yellow-800 border-yellow-200">
+            <Badge className="mb-4">
               Meet the Team
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text">
@@ -237,7 +237,7 @@ export default function AboutPage() {
               <Card key={member.name} className={`group text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg stagger-animation opacity-0`}>
                 <CardHeader className="pb-4">
                   <div className="relative mx-auto mb-6">
-                    <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-blue-100 dark:ring-blue-900 group-hover:ring-blue-200 transition-all duration-300">
+                    <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-border group-hover:ring-primary/20 transition-all duration-300">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -247,10 +247,10 @@ export default function AboutPage() {
                       />
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-headline group-hover:text-blue-600 transition-colors">
+                  <CardTitle className="text-xl font-headline group-hover:text-primary transition-colors">
                     {member.name}
                   </CardTitle>
-                  <CardDescription className="text-blue-600 font-medium">
+                  <CardDescription className="text-primary/80 font-medium">
                     {member.role}
                   </CardDescription>
                 </CardHeader>
@@ -266,7 +266,7 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <Badge className="mb-6 bg-white/20 text-white border-white/30">
@@ -282,7 +282,7 @@ export default function AboutPage() {
                 <div className="text-4xl md:text-5xl font-bold mb-2 text-white">
                   {achievement.metric}
                 </div>
-                <div className="text-blue-200 text-lg">
+                <div className="text-gray-300 text-lg">
                   {achievement.label}
                 </div>
               </div>
@@ -303,13 +303,13 @@ export default function AboutPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
+            <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
               <Link href="/quote">
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="group hover:bg-blue-50 transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
+            <Button asChild size="lg" variant="outline" className="group hover:bg-accent transition-all duration-300 hover:scale-105 px-8 py-4 text-lg">
               <Link href="/contact">Learn More</Link>
             </Button>
           </div>
