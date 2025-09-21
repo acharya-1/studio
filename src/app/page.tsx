@@ -54,7 +54,7 @@ export default function Home() {
 
         <div className="container relative z-10">
             <div className="grid md:grid-cols-2 items-center gap-12">
-                <div className="text-white">
+                <div className="text-white px-4">
                     <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
                     Reliable Manpower, On Demand
                     </h1>

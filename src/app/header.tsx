@@ -51,7 +51,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 'px-4 py-2 rounded-md text-sm font-medium transition-all duration-300',
-                pathname === link.href 
+                pathname === link.href
                   ? 'text-primary' 
                   : cn('hover:text-primary', isHomePage && !isScrolled ? 'text-white' : 'text-foreground')
               )}
