@@ -37,10 +37,10 @@ export function Header() {
 
   return (
     <header className={cn(
-      'fixed top-0 left-1/2 -translate-x-1/2 w-[90%] z-50 transition-all duration-300 mt-4 rounded-lg',
+      'fixed top-0  z-50 transition-all duration-300  left-1/2 -translate-x-1/2 w-full ',
       isScrolled || !isHomePage ? 'bg-background/80 backdrop-blur-md border' : 'bg-transparent border-b-transparent'
     )}>
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-20 w-[90%] mx-auto">
         <Link href="/" aria-label="Back to homepage">
           <Logo />
         </Link>

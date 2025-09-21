@@ -38,7 +38,7 @@ export default function Home() {
     <div className="flex flex-col bg-background">
       {/* Hero Section */}
       <div className='bg-secondary/30'>
-      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center overflow-hidden ">
+      <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center overflow-hidden hero-clip-path">
         <div className="absolute inset-0 z-0">
           {heroImage && (
             <Image
@@ -51,10 +51,9 @@ export default function Home() {
             />
           )}
         </div>
-        <div className="absolute inset-0 bg-black/70"></div>
-        <div className='hero-clip-path absolute inset-0 bg-secondary/30'></div>
+        <div className='absolute inset-0 bg-black/70'></div>
 
-        <div className="container relative z-10 mx-auto">
+        <div className="container relative z-10 mx-auto w-[85%] ">
             <div className="grid md:grid-cols-2 items-center gap-12">
                 <div className="text-white">
                     <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
@@ -80,22 +79,18 @@ export default function Home() {
       </section></div>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-secondary/30">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-               {aboutImage && (
-                  <Image
-                    src={aboutImage.imageUrl}
-                    alt={aboutImage.description}
-                    data-ai-hint={aboutImage.imageHint}
-                    width={500}
-                    height={500}
-                    className="rounded-lg shadow-2xl w-full"
-                  />
-                )}
+      <section 
+        id="about" 
+        className="py-32 relative bg-cover bg-center bg-fixed-parallax"
+        style={{ backgroundImage: aboutImage ? `url(${aboutImage.imageUrl})` : 'none' }}
+      >
+        <div className="absolute inset-0 bg-background/80 dark:bg-background/90 backdrop-blur-sm"></div>
+        <div className="container w-[90%] mx-auto relative z-10">
+          <div className="grid md:grid-cols-5 gap-16 items-center">
+            <div className="relative col-span-2 hidden md:block">
+               {/* This space is intentionally left blank for the background image to show through */}
             </div>
-            <div>
+            <div className='col-span-5 md:col-span-3'>
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
                 Who We Are
               </Badge>
