@@ -49,7 +49,6 @@ export default function Home() {
               priority
             />
           )}
-          <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
         <div className="container relative z-10 w-[85%] mx-auto">
