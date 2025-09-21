@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Dark underground subway tunnel with lights on the ceiling.",
-      "imageUrl": "https://picsum.photos/seed/subway-tunnel/1920/1080",
-      "imageHint": "dark tunnel"
+      "description": "Dramatic rocky sea stacks in a misty ocean, conveying reliability and strength.",
+      "imageUrl": "https://picsum.photos/seed/seastacks/1920/1080",
+      "imageHint": "rocky coast"
     },
     {
       "id": "about-us",
