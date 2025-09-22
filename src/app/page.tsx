@@ -41,6 +41,42 @@ export default function Home() {
 
   useEffect(() => {
     const context = gsap.context(() => {
+      // Hero Section Text Animation
+      gsap.fromTo(
+        '.hero-text',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.hero-text',
+            start: 'top 80%',
+            end: 'top 50%',
+            scrub: 1,
+          },
+        }
+      );
+      gsap.fromTo(
+        '.hero-button',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.5,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.hero-button',
+            start: 'top 80%',
+            end: 'top 50%',
+            scrub: 1,
+          },
+        }
+      );
+
+      // About Section Animations
       gsap.utils.toArray('.stagger-animation').forEach((el: any) => {
         gsap.fromTo(
           el,
@@ -48,7 +84,7 @@ export default function Home() {
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
@@ -59,6 +95,62 @@ export default function Home() {
           }
         );
       });
+
+      // Features Section (Who do we help)
+      gsap.utils.toArray('.feature-card').forEach((el: any) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 80%',
+              end: 'top 50%',
+              scrub: 1,
+            },
+          }
+        );
+      });
+
+      // Testimonials Auto-scroll with Fade-in
+      const testimonialsItems = document.querySelectorAll('.testimonial-item');
+      let index = 0;
+      const scrollInterval = setInterval(() => {
+        const totalItems = testimonialsItems.length;
+        if (index < totalItems - 1) {
+          index++;
+        } else {
+          index = 0;
+        }
+
+        gsap.to('.testimonials', {
+          scrollTo: testimonialsItems[index],
+          duration: 1,
+          ease: 'power3.inOut',
+        });
+      }, 5000);
+
+      // CTA Section Animation
+      gsap.fromTo(
+        '.cta-text',
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.cta-text',
+            start: 'top 80%',
+            end: 'top 50%',
+            scrub: 1,
+          },
+        }
+      );
     }, pageRef);
 
     return () => context.revert();
@@ -86,13 +178,13 @@ export default function Home() {
           <div className="container relative z-10 w-[85%] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
               <div className="text-white">
-                <h1 className="text-3xl md:text-5xl font-bold font-headline mb-6 slide-up leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold font-headline mb-6 slide-up leading-tight hero-text">
                   Reliable Manpower, On Demand
                 </h1>
                 <p className="text-base md:text-lg mb-6 max-w-xl leading-relaxed fade-in-up text-white/80">
                   Connect with skilled professionals instantly. Find the perfect workforce for your business needs.
                 </p>
-                <div className="flex gap-4 fade-in-up">
+                <div className="flex gap-4 hero-button">
                   <Button asChild size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg px-8 py-4 text-base font-semibold">
                     <Link href="/quote">Request Staff</Link>
                   </Button>
@@ -113,7 +205,7 @@ export default function Home() {
       <section id="about" className="py-24 bg-secondary/30">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-16 items-center w-[85%] mx-auto">
-             <div className="relative col-span-5 md:col-span-2 h-64 md:h-[500px] stagger-animation opacity-0">
+            <div className="relative col-span-5 md:col-span-2 h-64 md:h-[500px] stagger-animation opacity-0">
               <div
                 className="absolute inset-0 bg-cover bg-center rounded-lg shadow-2xl bg-fixed-parallax"
                 style={{ backgroundImage: `url(https://lh4.googleusercontent.com/proxy/8ATaB7Gjf3hr1cQOaY9ura5Lun9NyPd6K-MNbgB02K1i15MFpb_ziuoAvvDijHkBntxkBwknmq2apzN2TLpyNK9muaF3Wl5Hvw)` }}
@@ -161,7 +253,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8  mx-auto">
             {featuredServices.map((feature, index) => (
-              <Card key={feature.title} className="stagger-animation opacity-0 group text-center bg-secondary/30 border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg" style={{animationDelay: `${index * 0.1}s`}}>
+              <Card key={feature.title} className="feature-card stagger-animation opacity-0 group text-center bg-secondary/30 border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader className="items-center pb-4">
                   <div className="bg-background p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <feature.icon className="w-8 h-8 text-primary" />
@@ -201,7 +293,7 @@ export default function Home() {
               {testimonials.map((testimonial, index) => {
                 const testimonialImage = PlaceHolderImages.find(img => img.id === `testimonial-${index + 1}`);
                 return (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 testimonial-item stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
+                  <CarouselItem key={index} className="testimonial-item stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
                     <div className="p-1 h-full">
                       <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-background">
                         <CardContent className="p-0 pb-8">
@@ -244,7 +336,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 bg-background">
         <div className="container text-center stagger-animation opacity-0">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6 leading-tight cta-text">
             Ready to Build Your Team?
           </h2>
           <p className="text-lg max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground">
