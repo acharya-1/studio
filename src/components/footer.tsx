@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 relative pt-24">
       <div className="absolute top-0 left-0 w-full h-full angled-section-footer bg-gray-900"></div>
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative w-[85%]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
