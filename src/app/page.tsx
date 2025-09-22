@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Star, TrendingUp, Users, Zap, Shield, Clock } from 'lucide-react';
@@ -53,7 +54,7 @@ export default function Home() {
         </div>
         <div className='absolute inset-0 bg-black/70'></div>
 
-        <div className="container relative z-10 mx-auto w-[85%] ">
+        <div className="container relative z-10 mx-auto ">
             <div className="grid md:grid-cols-2 items-center gap-12">
                 <div className="text-white">
                     <h1 className="text-5xl md:text-6xl font-bold font-headline mb-6 slide-up leading-tight">
@@ -81,14 +82,18 @@ export default function Home() {
       {/* About Section */}
       <section 
         id="about" 
-        className="py-32 relative bg-cover bg-center bg-fixed-parallax"
-        style={{ backgroundImage: aboutImage ? `url(${aboutImage.imageUrl})` : 'none' }}
+        className="py-32 bg-background"
       >
-        <div className="absolute inset-0 bg-background/80 dark:bg-background/90 backdrop-blur-sm"></div>
-        <div className="container w-[90%] mx-auto relative z-10">
+        <div className="container mx-auto">
           <div className="grid md:grid-cols-5 gap-16 items-center">
-            <div className="relative col-span-2 hidden md:block">
-               {/* This space is intentionally left blank for the background image to show through */}
+            <div className="relative col-span-2 hidden md:block h-[500px]">
+              {aboutImage && (
+                <div
+                  className="absolute inset-0 rounded-xl bg-cover bg-center bg-fixed-parallax shadow-2xl"
+                  style={{ backgroundImage: `url(${aboutImage.imageUrl})` }}
+                  data-ai-hint={aboutImage.imageHint}
+                ></div>
+              )}
             </div>
             <div className='col-span-5 md:col-span-3'>
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
