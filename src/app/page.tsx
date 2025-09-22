@@ -85,8 +85,8 @@ export default function Home() {
         className="py-32 bg-secondary/30"
       >
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-5 gap-16 items-center">
-            <div className="relative col-span-2 hidden md:block h-[500px]">
+          <div className="grid md:grid-cols-5 gap-16 items-center w-[85%] mx-auto">
+            <div className="relative col-span-5 md:col-span-2 h-80 md:h-[500px]">
               <div
                 className="absolute inset-0 bg-cover bg-center rounded-xl shadow-2xl bg-fixed-parallax"
                 style={{ backgroundImage: `url(https://lh4.googleusercontent.com/proxy/8ATaB7Gjf3hr1cQOaY9ura5Lun9NyPd6K-MNbgB02K1i15MFpb_ziuoAvvDijHkBntxkBwknmq2apzN2TLpyNK9muaF3Wl5Hvw)` }}
