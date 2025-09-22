@@ -17,6 +17,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -189,42 +190,54 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => {
-              const testimonialImage = PlaceHolderImages.find(img => img.id === `testimonial-${index + 1}`);
-              return (
-                <div key={index} className="stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
-                  <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-background">
-                    <CardContent className="p-0 pb-8">
-                      <div className="flex mb-4">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-500'}`}
-                          />
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground italic text-base md:text-lg leading-relaxed">
-                        "{testimonial.quote}"
-                      </p>
-                    </CardContent>
-                    <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                      {testimonialImage && (
-                        <Avatar className="w-12 h-12 ring-2 ring-border">
-                          <AvatarImage src={testimonialImage.imageUrl} alt={testimonial.name} />
-                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                      )}
-                      <div>
-                        <p className="font-semibold text-base">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                      </div>
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => {
+                const testimonialImage = PlaceHolderImages.find(img => img.id === `testimonial-${index + 1}`);
+                return (
+                  <CarouselItem key={index} className="md:basis-1/2">
+                    <div className="p-1 h-full">
+                      <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-background">
+                        <CardContent className="p-0 pb-8">
+                          <div className="flex mb-4">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-500'}`}
+                              />
+                            ))}
+                          </div>
+                          <p className="text-muted-foreground italic text-base md:text-lg leading-relaxed">
+                            "{testimonial.quote}"
+                          </p>
+                        </CardContent>
+                        <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                          {testimonialImage && (
+                            <Avatar className="w-12 h-12 ring-2 ring-border">
+                              <AvatarImage src={testimonialImage.imageUrl} alt={testimonial.name} />
+                              <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                          )}
+                          <div>
+                            <p className="font-semibold text-base">{testimonial.name}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                          </div>
+                        </div>
+                      </Card>
                     </div>
-                  </Card>
-                </div>
-              );
-            })}
-          </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
