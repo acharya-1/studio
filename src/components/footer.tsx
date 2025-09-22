@@ -49,29 +49,28 @@ export function Footer() {
 
       // Auto-scrolling testimonials
       const testimonials = gsap.utils.toArray('.testimonial-item');
-      const testimonialContainer = document.querySelector('.testimonials');
-      if (testimonialContainer && testimonials.length > 0) {
-        const carousel = document.querySelector('.testimonials .embla-carousel-container');
+      const carousel = document.querySelector('.testimonials .embla__container');
 
+      if (carousel && testimonials.length > 0) {
         let index = 0;
         const scrollInterval = setInterval(() => {
           index = (index + 1) % testimonials.length;
           const target = testimonials[index] as HTMLElement;
 
           if (carousel) {
-            gsap.to(carousel, {
-              scrollTo: { x: target.offsetLeft, y: 0 },
-              duration: 1,
-              ease: 'power3.inOut',
+             gsap.to(carousel, {
+                scrollTo: { x: target.offsetLeft, y: 0, autoKill: false },
+                duration: 1.5,
+                ease: 'power3.inOut',
             });
           }
         }, 5000);
 
-        return () => clearInterval(scrollInterval); // Cleanup the interval
+        return () => clearInterval(scrollInterval);
       }
     }, footerRef);
 
-    return () => context.revert(); // Cleanup GSAP context
+    return () => context.revert();
   }, []);
 
   return (

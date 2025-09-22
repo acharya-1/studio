@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +16,12 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const values = [
   {
@@ -76,8 +83,33 @@ const achievements = [
 ];
 
 export default function AboutPage() {
+    const pageRef = useRef(null);
+
+    useEffect(() => {
+        const context = gsap.context(() => {
+        gsap.utils.toArray('.stagger-animation').forEach((el: any) => {
+            gsap.fromTo(el, 
+            { opacity: 0, y: 40 },
+            { 
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+                end: 'top 50%',
+                scrub: 1,
+                }
+            }
+            );
+        });
+        }, pageRef);
+
+        return () => context.revert();
+    }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={pageRef}>
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary/30 dark:bg-card">
         <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>

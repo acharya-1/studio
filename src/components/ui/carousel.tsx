@@ -157,11 +157,11 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="overflow-hidden embla-carousel-container">
       <div
         ref={ref}
         className={cn(
-          "flex",
+          "flex embla__container",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
           className
         )}
