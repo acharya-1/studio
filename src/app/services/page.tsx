@@ -1,17 +1,48 @@
+'use client';
 import { services } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Shield, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ServicesPage() {
   const skilledLabor = services.filter(s => s.category === 'Skilled Labor');
   const generalLabor = services.filter(s => s.category === 'General Labor');
   const eventServices = services.filter(s => s.category === 'Event Services');
+  const pageRef = useRef(null);
+
+    useEffect(() => {
+        const context = gsap.context(() => {
+        gsap.utils.toArray('.stagger-animation').forEach((el: any) => {
+            gsap.fromTo(el, 
+            { opacity: 0, y: 40 },
+            { 
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+                end: 'top 50%',
+                scrub: 1,
+                }
+            }
+            );
+        });
+        }, pageRef);
+
+        return () => context.revert();
+    }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={pageRef}>
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary/30 dark:bg-card">
          <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
@@ -33,7 +64,7 @@ export default function ServicesPage() {
         <div className="container">
           {/* Skilled Labor */}
           <div className="mb-20">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 stagger-animation opacity-0">
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
                 Skilled Labor
               </Badge>
@@ -45,8 +76,8 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skilledLabor.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
+            {skilledLabor.map((service, index) => (
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader className="flex-row items-center gap-4 relative z-10 p-6">
                   <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
                      <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
@@ -63,7 +94,7 @@ export default function ServicesPage() {
 
           {/* General Labor */}
           <div className="mb-20">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 stagger-animation opacity-0">
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
                 General Labor
               </Badge>
@@ -75,8 +106,8 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {generalLabor.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
+            {generalLabor.map((service, index) => (
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader className="flex-row items-center gap-4 relative z-10 p-6">
                   <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
                      <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
@@ -93,7 +124,7 @@ export default function ServicesPage() {
           
           {/* Event Services */}
           <div>
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 stagger-animation opacity-0">
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
                 Event Services
               </Badge>
@@ -105,8 +136,8 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eventServices.map((service) => (
-              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative">
+            {eventServices.map((service, index) => (
+              <Card key={service.title} className="group flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border shadow-sm bg-card overflow-hidden relative stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader className="flex-row items-center gap-4 relative z-10 p-6">
                   <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
                      <service.icon className="w-6 h-6 text-primary group-hover:text-primary-dark transition-colors duration-300" />
@@ -126,7 +157,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-background relative">
         <div className="absolute inset-x-0 top-0 h-48 bg-accent" style={{clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 100%)'}}></div>
-        <div className="container text-center relative z-10">
+        <div className="container text-center relative z-10 stagger-animation opacity-0">
           <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
             Need to Fill a Role?
           </h2>

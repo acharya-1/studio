@@ -1,3 +1,4 @@
+'use client';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +16,11 @@ import {
   Crown,
   Rocket
 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
@@ -92,8 +98,34 @@ const faqs = [
 ];
 
 export default function PricingPage() {
+  const pageRef = useRef(null);
+
+    useEffect(() => {
+        const context = gsap.context(() => {
+        gsap.utils.toArray('.stagger-animation').forEach((el: any) => {
+            gsap.fromTo(el, 
+            { opacity: 0, y: 40 },
+            { 
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+                end: 'top 50%',
+                scrub: 1,
+                }
+            }
+            );
+        });
+        }, pageRef);
+
+        return () => context.revert();
+    }, []);
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={pageRef}>
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary/30 dark:bg-card">
         <div className="absolute top-0 left-0 w-full h-full bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }}></div>
@@ -117,7 +149,7 @@ export default function PricingPage() {
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
             {plans.map((plan, index) => (
-              <Card key={plan.name} className={`relative group transition-all duration-500 hover:-translate-y-2 border shadow-lg overflow-hidden ${plan.popular ? 'ring-2 ring-primary shadow-2xl' : 'hover:shadow-2xl'}`}>
+              <Card key={plan.name} className={`relative group transition-all duration-500 hover:-translate-y-2 border shadow-lg overflow-hidden stagger-animation opacity-0 ${plan.popular ? 'ring-2 ring-primary shadow-2xl' : 'hover:shadow-2xl'}`} style={{animationDelay: `${index * 0.1}s`}}>
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-primary text-white text-center py-2 px-4 text-xs font-semibold rounded-bl-lg">
                     Popular
@@ -173,7 +205,7 @@ export default function PricingPage() {
       {/* FAQ */}
       <section className="py-24 bg-secondary/30 dark:bg-card angled-section-b">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 stagger-animation opacity-0">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
               FAQ
             </Badge>
@@ -187,7 +219,7 @@ export default function PricingPage() {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-sm bg-background">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-sm bg-background stagger-animation opacity-0" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader>
                   <CardTitle className="text-lg font-headline text-left">
                     {faq.question}
@@ -207,7 +239,7 @@ export default function PricingPage() {
       {/* CTA */}
       <section className="py-24 bg-background relative">
         <div className="absolute inset-x-0 top-0 h-48 bg-accent" style={{clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 100%)'}}></div>
-        <div className="container text-center relative z-10">
+        <div className="container text-center relative z-10 stagger-animation opacity-0">
           <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6 leading-tight">
             Start Building Your Team Today
           </h2>

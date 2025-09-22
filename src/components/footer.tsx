@@ -17,36 +17,6 @@ export function Footer() {
 
   useEffect(() => {
     const context = gsap.context(() => {
-      // Fade in text animation on scroll
-      gsap.from('.fade-in', {
-        opacity: 0,
-        y: 50,
-        duration: 1.5,
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: 'top 85%',
-          end: 'top 50%',
-          scrub: 1,
-        },
-      });
-
-      // Sticky card animation for "Who do we help" section
-      gsap.from('.sticky-card', {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.sticky-card',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
       // Auto-scrolling testimonials
       const testimonials = gsap.utils.toArray('.testimonial-item');
       const carousel = document.querySelector('.testimonials .embla__container');
@@ -79,7 +49,7 @@ export function Footer() {
       <div className="container mx-auto px-4 relative w-[85%]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1 fade-in">
+          <div className="lg:col-span-1">
              <Link href="/" aria-label="Back to homepage" className="mb-6 inline-block">
                 <Logo />
             </Link>
@@ -100,7 +70,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="fade-in">
+          <div>
             <h3 className="font-semibold text-white mb-6 text-lg">Company</h3>
             <ul className="space-y-4">
               <li><Link href="/about" className="text-gray-400 hover:text-primary transition-colors duration-300">About Us</Link></li>
@@ -111,7 +81,7 @@ export function Footer() {
           </div>
 
           {/* Resources */}
-          <div className="fade-in">
+          <div>
             <h3 className="font-semibold text-white mb-6 text-lg">Resources</h3>
             <ul className="space-y-4">
               <li><Link href="/quote" className="text-gray-400 hover:text-primary transition-colors duration-300">Request Staff</Link></li>
@@ -122,7 +92,7 @@ export function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="fade-in">
+          <div>
             <h3 className="font-semibold text-white mb-6 text-lg">Stay Updated</h3>
             <p className="text-gray-400 text-sm mb-4 leading-relaxed">
               Get the latest updates on workforce trends and StaffHub features.
@@ -140,7 +110,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-16 pt-8 border-t border-gray-700 text-center fade-in">
+        <div className="mt-16 pt-8 border-t border-gray-700 text-center">
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} StaffHub. All Rights Reserved.
           </p>
