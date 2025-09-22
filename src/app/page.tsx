@@ -82,18 +82,17 @@ export default function Home() {
       {/* About Section */}
       <section 
         id="about" 
-        className="py-32 bg-background"
+        className="py-32 bg-secondary/30"
       >
         <div className="container mx-auto">
           <div className="grid md:grid-cols-5 gap-16 items-center">
             <div className="relative col-span-2 hidden md:block h-[500px]">
-              {aboutImage && (
+              <div className="absolute inset-0 rounded-xl overflow-hidden shadow-2xl">
                 <div
-                  className="absolute inset-0 rounded-xl bg-cover bg-center bg-fixed-parallax shadow-2xl"
-                  style={{ backgroundImage: `url(${aboutImage.imageUrl})` }}
-                  data-ai-hint={aboutImage.imageHint}
+                  className="absolute inset-0 bg-cover bg-center bg-fixed-parallax"
+                  style={{ backgroundImage: `url(https://lh4.googleusercontent.com/proxy/8ATaB7Gjf3hr1cQOaY9ura5Lun9NyPd6K-MNbgB02K1i15MFpb_ziuoAvvDijHkBntxkBwknmq2apzN2TLpyNK9muaF3Wl5Hvw)` }}
                 ></div>
-              )}
+              </div>
             </div>
             <div className='col-span-5 md:col-span-3'>
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 text-sm">
