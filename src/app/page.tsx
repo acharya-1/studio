@@ -50,8 +50,8 @@ export default function Home() {
                 priority
               />
             )}
+            <div className="absolute inset-0 bg-black/70"></div>
           </div>
-          <div className="absolute inset-0 bg-black/70"></div>
 
           <div className="container relative z-10 w-[85%] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
@@ -131,7 +131,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8  mx-auto">
             {featuredServices.map((feature, index) => (
-              <Card key={feature.title} className="group text-center bg-secondary/30 border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg">
+              <Card key={feature.title} className="sticky-card group text-center bg-secondary/30 border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 shadow-lg">
                 <CardHeader className="items-center pb-4">
                   <div className="bg-background p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <feature.icon className="w-8 h-8 text-primary" />
@@ -166,12 +166,12 @@ export default function Home() {
             </p>
           </div>
 
-          <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-6xl mx-auto">
+          <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-6xl mx-auto testimonials">
             <CarouselContent>
               {testimonials.map((testimonial, index) => {
                 const testimonialImage = PlaceHolderImages.find(img => img.id === `testimonial-${index + 1}`);
                 return (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 testimonial-item">
                     <div className="p-1 h-full">
                       <Card className="group flex flex-col justify-between h-full p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-background">
                         <CardContent className="p-0 pb-8">
